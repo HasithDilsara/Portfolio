@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasith Dilsara | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+crossorigin="anonymous"
+referrerpolicy="no-referrer" />
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+    <canvas id="particleCanvas"></canvas>
+    
+    <main class="content">
+        <header>
+            <div class="logo">
+                <span class="logo-icon">▲</span> Hasith
+            </div>
+            <nav class="nav-links">
+                <a href="#hero">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <section class="hero" id="hero">
+            <h1 class="highlight"><span id="name-typewriter"></span></h1>
+            <h2><span id="title-typewriter"></span></h2>
+            <div class="cta-group">
+                <a href="#projects" class="btn-primary">Explore Work</a>
+                <a href="#contact" class="btn-primary">Contact</a>
+            </div>
+        </section>
+
+        <section id="projects">
+    <canvas id="projectsCanvas"></canvas>   <!-- ADD THIS -->
+
+    <div class="projects-content">
+
+    <h2 class="highlight">Projects</h2>  <!--carousel-->
+
+    <div class="carousel-wrapper">
+        <button class="arrow left">&#10094;</button>
+
+        <div class="carousel">
+            <div class="project-card">
+                <h3>Project 1</h3>
+                <p>Short description</p>
+                <button class="info-btn" data-project="1">Info</button>
+            </div>
+
+            <div class="project-card">
+                <h3>Project 2</h3>
+                <p>Short description</p>
+                <button class="info-btn" data-project="2">Info</button>
+            </div>
+
+            <div class="project-card">
+                <h3>Project 3</h3>
+                <p>Short description</p>
+                <button class="info-btn" data-project="3">Info</button>
+            </div>
+        </div>
+
+        <button class="arrow right">&#10095;</button>
+    </div>
+
+</div>
+
+
+<!-- Popup Modal -->
+<div class="modal" id="projectModal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+</section>
+
+
+<section id="contact">
+    <h2 class="highlight">Get in Touch</h2>
+    <p>Interested in collaborating? Drop me a message.</p>
+
+    <button type="button" class="btn-primary" id="contactHelloBtn">
+        Say Hello
+        
+    </button>
+
+    <div class="social-menu" id="contactSocialMenu">
+    <a href="https://linkedin.com" target="_blank" class="social-item">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <a href="https://github.com" target="_blank" class="social-item">
+        <i class="fab fa-github"></i>
+    </a>
+
+    <a href="https://instagram.com" target="_blank" class="social-item">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://twitter.com" target="_blank" class="social-item">
+        <i class="fab fa-x-twitter"></i>
+    </a>
+
+    <a href="mailto:youremail@gmail.com" class="social-item">
+        <i class="fas fa-envelope"></i>
+    </a>
+</div>
+
+</section>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
