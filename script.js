@@ -1,1 +1,304 @@
-const _0x42ba13=_0x577c;(function(_0x5470d6,_0x580961){const _0x2e280c=_0x577c,_0x5794c8=_0x5470d6();while(!![]){try{const _0x11bbe4=parseInt(_0x2e280c(0xfb))/0x1+-parseInt(_0x2e280c(0x110))/0x2+-parseInt(_0x2e280c(0x116))/0x3+parseInt(_0x2e280c(0xfc))/0x4+-parseInt(_0x2e280c(0xde))/0x5*(-parseInt(_0x2e280c(0x109))/0x6)+parseInt(_0x2e280c(0x118))/0x7+parseInt(_0x2e280c(0x126))/0x8*(-parseInt(_0x2e280c(0x117))/0x9);if(_0x11bbe4===_0x580961)break;else _0x5794c8['push'](_0x5794c8['shift']());}catch(_0x323462){_0x5794c8['push'](_0x5794c8['shift']());}}}(_0x4760,0xa117f));const canvas=document[_0x42ba13(0x128)]('particleCanvas'),ctx=canvas['getContext']('2d');let particles=[];const mouse={'x':null,'y':null,'radius':0xc8};window[_0x42ba13(0xf3)](_0x42ba13(0x11e),_0x4e1caf=>{const _0x3826da=_0x42ba13;mouse['x']=_0x4e1caf[_0x3826da(0xe7)],mouse['y']=_0x4e1caf[_0x3826da(0xf5)];});class Particle{constructor(_0x27389e,_0x321036){const _0x3cc2cd=_0x42ba13;this['x']=_0x27389e,this['y']=_0x321036,this['baseX']=_0x27389e,this[_0x3cc2cd(0x123)]=_0x321036,this[_0x3cc2cd(0x11c)]=Math['random']()*1.5+0x1,this['density']=Math[_0x3cc2cd(0xfa)]()*0x14+0x5,this['color']=this[_0x3cc2cd(0x12e)](),this['angle']=Math[_0x3cc2cd(0xfa)]()*Math['PI']*0x2,this['velocity']=Math['random']()*0.02+0.005,this[_0x3cc2cd(0xe6)]=Math[_0x3cc2cd(0xfa)]()*0xf+0x5;}[_0x42ba13(0x12e)](){const _0x26ab01=_0x42ba13,_0x33d698=[_0x26ab01(0x120),_0x26ab01(0xf0),_0x26ab01(0xed),'#8effac'];return _0x33d698[Math['floor'](Math[_0x26ab01(0xfa)]()*_0x33d698['length'])];}[_0x42ba13(0xf7)](){const _0x15fd8a=_0x42ba13;ctx[_0x15fd8a(0x127)]=this[_0x15fd8a(0xf4)],ctx[_0x15fd8a(0x10a)](),ctx[_0x15fd8a(0x115)](this['x'],this['y'],this[_0x15fd8a(0x11c)],0x0,Math['PI']*0x2),ctx[_0x15fd8a(0xe4)](),ctx[_0x15fd8a(0xf8)]();}[_0x42ba13(0xe8)](){const _0x24428c=_0x42ba13;this[_0x24428c(0xee)]+=this[_0x24428c(0xef)];let _0x7346e7=Math[_0x24428c(0x104)](this['angle'])*this[_0x24428c(0xe6)],_0x458c19=Math['cos'](this['angle'])*this[_0x24428c(0xe6)],_0x5c8a5d=this['baseX']+_0x7346e7,_0x1c3e9=this['baseY']+_0x458c19,_0x41225e=mouse['x']-this['x'],_0x4eb2b4=mouse['y']-this['y'],_0x31bb19=Math[_0x24428c(0x101)](_0x41225e*_0x41225e+_0x4eb2b4*_0x4eb2b4);if(_0x31bb19<mouse[_0x24428c(0x103)]){let _0x5d4502=_0x41225e/_0x31bb19,_0x26d12e=_0x4eb2b4/_0x31bb19,_0x5f391a=mouse[_0x24428c(0x103)],_0x571d41=(_0x5f391a-_0x31bb19)/_0x5f391a,_0x203afc=_0x5d4502*_0x571d41*this[_0x24428c(0x105)],_0x5eff82=_0x26d12e*_0x571d41*this['density'];this['x']-=_0x203afc,this['y']-=_0x5eff82;}else{if(this['x']!==_0x5c8a5d){let _0x5e4cc3=this['x']-_0x5c8a5d;this['x']-=_0x5e4cc3/0x14;}if(this['y']!==_0x1c3e9){let _0x1e6edd=this['y']-_0x1c3e9;this['y']-=_0x1e6edd/0x14;}}}}function init(){const _0x3693de=_0x42ba13;canvas[_0x3693de(0xea)]=window[_0x3693de(0xe9)],canvas[_0x3693de(0x112)]=window['innerHeight'],particles=[];const _0x1d5f46=canvas[_0x3693de(0xea)]*canvas[_0x3693de(0x112)]/0xfa0;for(let _0x79ab4e=0x0;_0x79ab4e<_0x1d5f46;_0x79ab4e++){let _0x4188ba=Math[_0x3693de(0xfa)]()*canvas[_0x3693de(0xea)],_0x5808fd=Math[_0x3693de(0xfa)]()*canvas[_0x3693de(0x112)];particles[_0x3693de(0x113)](new Particle(_0x4188ba,_0x5808fd));}}function animate(){const _0x5f4119=_0x42ba13;ctx[_0x5f4119(0xf9)](0x0,0x0,canvas['width'],canvas[_0x5f4119(0x112)]);for(let _0x4a8a80=0x0;_0x4a8a80<particles['length'];_0x4a8a80++){particles[_0x4a8a80]['draw'](),particles[_0x4a8a80][_0x5f4119(0xe8)]();}requestAnimationFrame(animate);}window['addEventListener']('resize',()=>{init();});const nameText=_0x42ba13(0x10e),nameElement=document['getElementById']('name-typewriter');let nameIndex=0x0;function typeName(){const _0x3b1cb4=_0x42ba13;nameElement&&nameIndex<nameText[_0x3b1cb4(0xf6)]&&(nameElement[_0x3b1cb4(0x10d)]+=nameText[_0x3b1cb4(0x11d)](nameIndex),nameIndex++,setTimeout(typeName,0x96));}function _0x4760(){const _0x2081fc=['19521kHzojV','1545257PjnYLd','smooth','innerHTML','click','size','charAt','mousemove','forEach','#d3f7f8','.info-btn','.arrow.left','baseY','projects','.project-card','104cbeQhz','fillStyle','getElementById','clientWidth','contactHelloBtn','<h3>Project\x203</h3><p>Full\x20detailed\x20description\x20of\x20project\x203.</p>','data-project','lineWidth','getRandomColor','Blending\x20the\x20precision\x20of\x20Engineering\x20Technology\x20with\x20creativity','scrollBy','toggle','15BUouNe','getAttribute','clicked','querySelector','show','offsetWidth','closePath','display','driftRange','clientX','update','innerWidth','width','block','querySelectorAll','#4efafd','angle','velocity','#eaeaff','log','DOMContentLoaded','addEventListener','color','clientY','length','draw','fill','clearRect','random','373832oLrSUx','373240KgoDHM','modalBody','.close','strokeStyle','resize','sqrt','<h3>Project\x201</h3><p>Full\x20detailed\x20description\x20of\x20project\x201.</p>','radius','sin','density','none','.arrow.right','contactSocialMenu','1570122QpcLUM','beginPath','title-typewriter','.carousel','textContent','Hasith\x20Dilsara','clientHeight','389126rFXzUN','target','height','push','classList','arc','1771065CTQxaX'];_0x4760=function(){return _0x2081fc;};return _0x4760();}const nameTextt=_0x42ba13(0x12f),nameElementt=document['getElementById'](_0x42ba13(0x10b));let nameIndext=0x0;function typeNames(){const _0x23d593=_0x42ba13;nameElementt&&nameIndext<nameTextt['length']&&(nameElementt[_0x23d593(0x10d)]+=nameTextt['charAt'](nameIndext),nameIndext++,setTimeout(typeNames,0x1e));}document[_0x42ba13(0xf3)](_0x42ba13(0xf2),()=>{init(),animate(),typeName(),typeNames();});const projectsCanvas=document['getElementById']('projectsCanvas'),projectsCtx=projectsCanvas['getContext']('2d'),projectsSection=document['getElementById'](_0x42ba13(0x124));let projectPoints=[];const PROJECT_POINT_COUNT=0x64,PROJECT_MAX_DISTANCE=0x78;function resizeProjectsCanvas(){const _0x5525a8=_0x42ba13;projectsCanvas[_0x5525a8(0xea)]=projectsSection[_0x5525a8(0x129)],projectsCanvas[_0x5525a8(0x112)]=projectsSection[_0x5525a8(0x10f)];}class ProjectPoint{constructor(){const _0x1a4612=_0x42ba13;this['x']=Math['random']()*projectsCanvas['width'],this['y']=Math['random']()*projectsCanvas[_0x1a4612(0x112)],this['vx']=(Math[_0x1a4612(0xfa)]()-0.5)*0x1,this['vy']=(Math[_0x1a4612(0xfa)]()-0.5)*0x1,this[_0x1a4612(0x11c)]=0x4;}[_0x42ba13(0xe8)](){const _0x2387a7=_0x42ba13;this['x']+=this['vx'],this['y']+=this['vy'];if(this['x']<0x0)this['x']=projectsCanvas[_0x2387a7(0xea)];if(this['x']>projectsCanvas['width'])this['x']=0x0;if(this['y']<0x0)this['y']=projectsCanvas[_0x2387a7(0x112)];if(this['y']>projectsCanvas[_0x2387a7(0x112)])this['y']=0x0;}['draw'](){const _0x3b6688=_0x42ba13;projectsCtx[_0x3b6688(0x10a)](),projectsCtx[_0x3b6688(0x115)](this['x'],this['y'],this[_0x3b6688(0x11c)],0x0,Math['PI']*0x2),projectsCtx['fillStyle']='rgba(0,255,255,0.8)',projectsCtx[_0x3b6688(0xf8)]();}}function connectProjectPoints(){const _0x569a7e=_0x42ba13;for(let _0x52e830=0x0;_0x52e830<projectPoints['length'];_0x52e830++){for(let _0x1f95ea=_0x52e830+0x1;_0x1f95ea<projectPoints[_0x569a7e(0xf6)];_0x1f95ea++){let _0x1a0360=projectPoints[_0x52e830]['x']-projectPoints[_0x1f95ea]['x'],_0x1fbb0f=projectPoints[_0x52e830]['y']-projectPoints[_0x1f95ea]['y'],_0x15b7bd=Math[_0x569a7e(0x101)](_0x1a0360*_0x1a0360+_0x1fbb0f*_0x1fbb0f);if(_0x15b7bd<PROJECT_MAX_DISTANCE){let _0x4e1ca4=0x1-_0x15b7bd/PROJECT_MAX_DISTANCE;projectsCtx[_0x569a7e(0xff)]='rgba(255,0,255,'+_0x4e1ca4*0.8+')',projectsCtx[_0x569a7e(0x12d)]=0x3,projectsCtx[_0x569a7e(0x10a)](),projectsCtx['moveTo'](projectPoints[_0x52e830]['x'],projectPoints[_0x52e830]['y']),projectsCtx['lineTo'](projectPoints[_0x1f95ea]['x'],projectPoints[_0x1f95ea]['y']),projectsCtx['stroke']();}}}}function initProjectsAnimation(){resizeProjectsCanvas(),projectPoints=[];for(let _0x58c836=0x0;_0x58c836<PROJECT_POINT_COUNT;_0x58c836++){projectPoints['push'](new ProjectPoint());}}function animateProjects(){const _0x107d4a=_0x42ba13;projectsCtx[_0x107d4a(0xf9)](0x0,0x0,projectsCanvas[_0x107d4a(0xea)],projectsCanvas[_0x107d4a(0x112)]),projectPoints[_0x107d4a(0x11f)](_0x5391d5=>{const _0x4814f7=_0x107d4a;_0x5391d5[_0x4814f7(0xe8)](),_0x5391d5['draw']();}),connectProjectPoints(),requestAnimationFrame(animateProjects);}window[_0x42ba13(0xf3)](_0x42ba13(0x100),()=>{resizeProjectsCanvas(),initProjectsAnimation();}),initProjectsAnimation(),animateProjects();const carousel=document[_0x42ba13(0xe1)](_0x42ba13(0x10c)),leftBtn=document[_0x42ba13(0xe1)](_0x42ba13(0x122)),rightBtn=document[_0x42ba13(0xe1)](_0x42ba13(0x107));rightBtn[_0x42ba13(0xf3)](_0x42ba13(0x11b),()=>{const _0x17fb7f=_0x42ba13;carousel[_0x17fb7f(0xdc)]({'left':0x12c,'behavior':_0x17fb7f(0x119)});}),leftBtn[_0x42ba13(0xf3)]('click',()=>{carousel['scrollBy']({'left':-0x12c,'behavior':'smooth'});});const modal=document[_0x42ba13(0x128)]('projectModal'),modalBody=document[_0x42ba13(0x128)](_0x42ba13(0xfd)),closeBtn=document[_0x42ba13(0xe1)](_0x42ba13(0xfe)),projectDetails={0x1:_0x42ba13(0x102),0x2:'<h3>Project\x202</h3><p>Full\x20detailed\x20description\x20of\x20project\x202.</p>',0x3:_0x42ba13(0x12b)};function _0x577c(_0xc831e7,_0x2af795){_0xc831e7=_0xc831e7-0xdc;const _0x47601d=_0x4760();let _0x577cb3=_0x47601d[_0xc831e7];return _0x577cb3;}document[_0x42ba13(0xec)](_0x42ba13(0x121))['forEach'](_0xc27ccd=>{const _0x717f50=_0x42ba13;_0xc27ccd[_0x717f50(0xf3)]('click',()=>{const _0x1f9023=_0x717f50,_0x2b8217=_0xc27ccd[_0x1f9023(0xdf)](_0x1f9023(0x12c));modalBody[_0x1f9023(0x11a)]=projectDetails[_0x2b8217],modal['style'][_0x1f9023(0xe5)]=_0x1f9023(0xeb);});}),closeBtn[_0x42ba13(0xf3)]('click',()=>{const _0x23cd69=_0x42ba13;modal['style'][_0x23cd69(0xe5)]=_0x23cd69(0x106);}),window[_0x42ba13(0xf3)]('click',_0x3c4b05=>{const _0x371de8=_0x42ba13;_0x3c4b05[_0x371de8(0x111)]===modal&&(modal['style'][_0x371de8(0xe5)]=_0x371de8(0x106));}),carousel[_0x42ba13(0xdc)]({'left':0x12c,'behavior':_0x42ba13(0x119)}),rightBtn[_0x42ba13(0xf3)]('click',()=>{const _0x5bc02a=_0x42ba13,_0x39fd51=document[_0x5bc02a(0xe1)](_0x5bc02a(0x125))['offsetWidth']+0x14;carousel['scrollBy']({'left':_0x39fd51,'behavior':_0x5bc02a(0x119)});}),leftBtn[_0x42ba13(0xf3)](_0x42ba13(0x11b),()=>{const _0x1d1ae1=_0x42ba13,_0x2789e=document['querySelector'](_0x1d1ae1(0x125))[_0x1d1ae1(0xe3)]+0x14;carousel[_0x1d1ae1(0xdc)]({'left':-_0x2789e,'behavior':_0x1d1ae1(0x119)});}),document[_0x42ba13(0xf3)](_0x42ba13(0xf2),function(){const _0x1c1fe9=_0x42ba13,_0x202d09=document[_0x1c1fe9(0x128)](_0x1c1fe9(0x12a)),_0x276885=document[_0x1c1fe9(0x128)](_0x1c1fe9(0x108));_0x202d09[_0x1c1fe9(0xf3)](_0x1c1fe9(0x11b),function(){const _0x525bec=_0x1c1fe9;_0x276885[_0x525bec(0x114)][_0x525bec(0xdd)](_0x525bec(0xe2)),console[_0x525bec(0xf1)](_0x525bec(0xe0));});});
+const canvas = document.getElementById('particleCanvas');
+const ctx = canvas.getContext('2d');
+
+let particles = [];
+const mouse = {
+    x: null,
+    y: null,
+    radius: 200 
+};
+
+// Fixed: Use clientX/Y for scrollable pages
+window.addEventListener('mousemove', (event) => {
+    mouse.x = event.clientX;
+    mouse.y = event.clientY;
+});
+
+class Particle {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.baseX = x; 
+        this.baseY = y;
+        this.size = Math.random() * 1.5 + 1;
+        this.density = (Math.random() * 20) + 5;
+        this.color = this.getRandomColor();
+        this.angle = Math.random() * Math.PI * 2;
+        this.velocity = Math.random() * 0.02 + 0.005;
+        this.driftRange = Math.random() * 15 + 5;
+    }
+
+    getRandomColor() {
+        const colors = ['#d3f7f8', '#eaeaff', '#4efafd', '#8effac'];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    draw() {
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    update() {
+        this.angle += this.velocity;
+        let driftX = Math.sin(this.angle) * this.driftRange;
+        let driftY = Math.cos(this.angle) * this.driftRange;
+
+        let targetX = this.baseX + driftX;
+        let targetY = this.baseY + driftY;
+
+        let dx = mouse.x - this.x;
+        let dy = mouse.y - this.y;
+        let distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < mouse.radius) {
+            let forceDirectionX = dx / distance;
+            let forceDirectionY = dy / distance;
+            let maxDistance = mouse.radius;
+            let force = (maxDistance - distance) / maxDistance;
+            let directionX = forceDirectionX * force * this.density;
+            let directionY = forceDirectionY * force * this.density;
+
+            this.x -= directionX;
+            this.y -= directionY;
+        } else {
+            if (this.x !== targetX) {
+                let dx = this.x - targetX;
+                this.x -= dx / 20;
+            }
+            if (this.y !== targetY) {
+                let dy = this.y - targetY;
+                this.y -= dy / 20;
+            }
+        }
+    }
+}
+
+function init() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    particles = [];
+    
+    const numberOfParticles = (canvas.width * canvas.height) / 4000; 
+    for (let i = 0; i < numberOfParticles; i++) {
+        let x = Math.random() * canvas.width;
+        let y = Math.random() * canvas.height;
+        particles.push(new Particle(x, y));
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particles.length; i++) {
+        particles[i].draw();
+        particles[i].update();
+    }
+    requestAnimationFrame(animate);
+}
+
+window.addEventListener('resize', () => {
+    init();
+});
+
+// Typewriter logic
+const nameText = "Hasith Dilsara";
+const nameElement = document.getElementById('name-typewriter');
+let nameIndex = 0;
+
+function typeName() {
+    if (nameElement && nameIndex < nameText.length) {
+        nameElement.textContent += nameText.charAt(nameIndex);
+        nameIndex++;
+        setTimeout(typeName, 150);
+    }
+}
+// Typewriter logic 
+const nameTextt = "Blending the precision of Engineering with creativity";
+const nameElementt = document.getElementById('title-typewriter');
+let nameIndext = 0;
+
+function typeNames() {
+    if (nameElementt && nameIndext < nameTextt.length) {
+        nameElementt.textContent += nameTextt.charAt(nameIndext);
+        nameIndext++;
+        setTimeout(typeNames, 30);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    init();
+    animate();
+    typeName();
+    typeNames();
+});
+
+//jghg
+
+/* ============================
+   PROJECTS SECTION ANIMATION
+============================ */
+
+const projectsCanvas = document.getElementById("projectsCanvas");
+const projectsCtx = projectsCanvas.getContext("2d");
+const projectsSection = document.getElementById("projects");
+
+let projectPoints = [];
+const PROJECT_POINT_COUNT = 100;
+const PROJECT_MAX_DISTANCE = 120;
+
+function resizeProjectsCanvas() {
+    projectsCanvas.width = projectsSection.clientWidth;
+    projectsCanvas.height = projectsSection.clientHeight;
+}
+
+class ProjectPoint {
+    constructor() {
+        this.x = Math.random() * projectsCanvas.width;
+        this.y = Math.random() * projectsCanvas.height;
+        this.vx = (Math.random() - 0.5) * 1;
+        this.vy = (Math.random() - 0.5) * 1;
+        this.size =4 ;
+    }
+
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0) this.x = projectsCanvas.width;
+        if (this.x > projectsCanvas.width) this.x = 0;
+        if (this.y < 0) this.y = projectsCanvas.height;
+        if (this.y > projectsCanvas.height) this.y = 0;
+    }
+
+    draw() {
+        projectsCtx.beginPath();
+        projectsCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        projectsCtx.fillStyle = "rgba(0,255,255,0.8)";        //color dots
+        projectsCtx.fill();
+    }
+}
+
+function connectProjectPoints() {
+    for (let i = 0; i < projectPoints.length; i++) {
+        for (let j = i + 1; j < projectPoints.length; j++) {
+
+            let dx = projectPoints[i].x - projectPoints[j].x;
+            let dy = projectPoints[i].y - projectPoints[j].y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < PROJECT_MAX_DISTANCE) {
+                let opacity = 1 - distance / PROJECT_MAX_DISTANCE;
+
+                projectsCtx.strokeStyle = `rgba(255,0,255,${opacity * 0.8})`;   //color line
+                projectsCtx.lineWidth = 3;
+                projectsCtx.beginPath();
+                projectsCtx.moveTo(projectPoints[i].x, projectPoints[i].y);
+                projectsCtx.lineTo(projectPoints[j].x, projectPoints[j].y);
+                projectsCtx.stroke();
+            }
+        }
+    }
+}
+
+function initProjectsAnimation() {
+    resizeProjectsCanvas();
+    projectPoints = [];
+    for (let i = 0; i < PROJECT_POINT_COUNT; i++) {
+        projectPoints.push(new ProjectPoint());
+    }
+}
+
+function animateProjects() {
+    projectsCtx.clearRect(0, 0, projectsCanvas.width, projectsCanvas.height);
+
+    projectPoints.forEach(p => {
+        p.update();
+        p.draw();
+    });
+
+    connectProjectPoints();
+    requestAnimationFrame(animateProjects);
+}
+
+window.addEventListener("resize", () => {
+    resizeProjectsCanvas();
+    initProjectsAnimation();
+});
+
+initProjectsAnimation();
+animateProjects();
+
+/* =====================
+   CAROUSEL NAVIGATION
+===================== */
+
+const carousel = document.querySelector(".carousel");
+const leftBtn = document.querySelector(".arrow.left");
+const rightBtn = document.querySelector(".arrow.right");
+
+rightBtn.addEventListener("click", () => {
+    carousel.scrollBy({ left: 300, behavior: "smooth" });
+});
+
+leftBtn.addEventListener("click", () => {
+    carousel.scrollBy({ left: -300, behavior: "smooth" });
+});
+
+
+/* =====================
+   MODAL LOGIC
+===================== */
+
+const modal = document.getElementById("projectModal");
+const modalBody = document.getElementById("modalBody");
+const closeBtn = document.querySelector(".close");
+
+const projectDetails = {
+    1: "<h3>Project 1</h3><p>Full detailed description of project 1.</p>",
+    2: "<h3>Project 2</h3><p>Full detailed description of project 2.</p>",
+    3: "<h3>Project 3</h3><p>Full detailed description of project 3.</p>"
+};
+
+document.querySelectorAll(".info-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        const id = button.getAttribute("data-project");
+        modalBody.innerHTML = projectDetails[id];
+        modal.style.display = "block";
+    });
+});
+
+closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});
+carousel.scrollBy({ left: 300, behavior: "smooth" });
+rightBtn.addEventListener("click", () => {
+    const cardWidth = document.querySelector(".project-card").offsetWidth + 20;
+    carousel.scrollBy({ left: cardWidth, behavior: "smooth" });
+});
+
+leftBtn.addEventListener("click", () => {
+    const cardWidth = document.querySelector(".project-card").offsetWidth + 20;
+    carousel.scrollBy({ left: -cardWidth, behavior: "smooth" });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const helloBtn = document.getElementById("contactHelloBtn");
+    const socialMenu = document.getElementById("contactSocialMenu");
+
+    helloBtn.addEventListener("click", function () {
+        socialMenu.classList.toggle("show");
+        console.log("clicked");
+    });
+
+});
+
+

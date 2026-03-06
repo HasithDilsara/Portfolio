@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesignX Creations // Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #100c27;
+            --accent-cyan: #00f3ff;
+            --glass-bg: rgba(15, 15, 15, 0.85); /* Darker to block the grid */
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #e0e0e0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* --- 1. Background Grid (Locked to the back) --- */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(46, 148, 153, 0.841) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(64, 185, 191, 0.604) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(ellipse at 50% 50%, black 20%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 20%, transparent 80%);
+            z-index: -1; /* Bottom Layer */
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes gridMove {
+            from { background-position: 0 0; }
+            to { background-position: 0 1000px; }
+        }
+
+        /* --- 2. Main Container (Layered above grid) --- */
+        .container { 
+            max-width: 1300px; 
+            margin: 50px auto; 
+            padding: 20px; 
+            position: relative; 
+            z-index: 10; /* Middle Layer */
+        }
+
+        h1 { font-family: 'Space Grotesk', sans-serif; letter-spacing: 4px; color: var(--accent-cyan); }
+        h3 { font-weight: 300; opacity: 0.7; margin-bottom: 40px; }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-auto-rows: 250px;
+            gap: 20px;
+        }
+
+        /* --- 3. Card Styles (The Top Layer) --- */
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            backdrop-filter: blur(20px); /* Blurs the grid behind the card */
+        }
+
+        .card:hover { 
+            border-color: var(--accent-cyan); 
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.15);
+        }
+
+        /* Sizing modifiers */
+        .large { grid-column: span 2; grid-row: span 2; }
+        .wide { grid-column: span 2; }
+
+        .card img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            z-index: -1;
+            transition: 0.4s;
+        }
+        .card:hover img { opacity: 0.9; }
+
+        .card h4 { margin: 0; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- 4. Popup Modal --- */
+        .modal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            display: none; 
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Highest Layer */
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 85%;
+            border: 1px solid var(--accent-cyan);
+            border-radius: 15px;
+            box-shadow: 0 0 50px rgba(0, 243, 255, 0.3);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 30px; right: 40px;
+            font-size: 3rem;
+            color: var(--accent-cyan);
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .large, .wide { grid-column: span 1; grid-row: span 1; }
+        }
+        .home {
+            position: fixed;
+            top: 20px; left: 20px;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 500;
+            z-index: 1001; /* Above modal */
+        }
+        /* Floating social icons (right side stacked) */
+        .social-side {
+            position: fixed;
+            right: 20px;
+            bottom: 120px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1002;
+        }
+
+        .social-side a {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.04);
+            color: #fff;
+            text-decoration: none;
+            transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+            box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+        }
+
+        .social-side a:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+        }
+
+        .social-side .whatsapp { background: linear-gradient(135deg,#25D366,#128C7E); }
+        .social-side .facebook { background: linear-gradient(135deg,#1877F2,#1755C6); }
+        .social-side .instagram { background: linear-gradient(135deg,#f09433,#e6683c,#cc2a7b,#4f5bd5); }
+        .social-side .tiktok { background: linear-gradient(135deg,#010101,#1b1b1b); }
+
+        .social-side svg { width: 22px; height: 22px; display: block; }
+
+        @media (max-width: 760px) {
+            .social-side { display: none; }
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="grid-bg"></div>
+        <a class="home" href="index.html"><span class="logo-icon">▲</span>Home</a>
+    <div class="container">
+        <h1>DesignX Creations</h1>
+        <h3>Official Whatsapp : <a href="wa.me/+94729244555">072 9244 555</a></h3>
+        <h3>SELECTED WORKS // 2026_COLLECTION</h3>
+        
+        <div class="bento-grid" id="portfolio-grid">
+            </div>
+    </div>
+
+    <div class="modal" id="design-modal">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <img class="modal-content" id="modal-img" src="" alt="Full view">
+    </div>
+    <!-- Floating social icons (WhatsApp, Facebook, Instagram, TikTok) -->
+    <div class="social-side" aria-hidden="false">
+        <a  href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp +94 72 9244 555"> Get in touch</a>
+        <a class="whatsapp" href="https://wa.me/94729244555" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp +94 72 9244 555">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.93 11.93 0 0012 .5C6 0.5 1.1 5.4 1.1 11.4c0 2.02.54 3.92 1.56 5.58L0.5 23.5l6.85-1.75c1.52.42 3.11.64 4.75.64 6.01 0 10.92-4.9 10.92-10.92 0-3-1.17-5.82-3.5-7.99z" fill="#fff" opacity="0.06"/><path d="M17.472 14.382c-.297-.15-1.757-.867-2.03-.967-.273-.1-.472-.15-.672.15s-.772.967-.947 1.167c-.174.2-.347.225-.644.075-.297-.15-1.255-.463-2.39-1.475-.885-.788-1.48-1.761-1.655-2.058-.174-.297-.018-.458.13-.608.134-.133.297-.347.446-.521.15-.174.2-.298.3-.497.1-.2 0-.374-.05-.524-.05-.15-.672-1.614-.92-2.21-.242-.583-.487-.504-.672-.514l-.574-.01c-.2 0-.524.075-.8.374s-1.05 1.024-1.05 2.495 1.075 2.89 1.225 3.089c.15.2 2.12 3.24 5.14 4.544 0 0 .4.15.725.075.325-.075 1.757-.718 2.005-1.412.248-.693.248-1.287.174-1.412-.075-.124-.273-.2-.57-.35z" fill="#fff"/></svg>
+        </a>
+
+        <a class="facebook" href="https://facebook.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07c0 4.99 3.66 9.13 8.43 9.91v-7.02H8.07v-2.89h2.22V9.41c0-2.2 1.31-3.41 3.32-3.41.96 0 1.96.17 1.96.17v2.15h-1.1c-1.08 0-1.42.67-1.42 1.37v1.63h2.42l-.39 2.89h-2.03v7.02c4.77-.78 8.43-4.92 8.43-9.91z"/></svg>
+        </a>
+
+        <a class="instagram" href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.2a4.8 4.8 0 100 9.6 4.8 4.8 0 000-9.6zM19.5 6.2a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg>
+        </a>
+
+        <a class="tiktok" href="https://www.tiktok.com/@yourprofile" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M16.5 7.5V13a3.5 3.5 0 11-3.5-3.5V9a6.5 6.5 0 006.5 6.5V7.5h-3z"/></svg>
+        </a>
+    </div>
+
+    <script>
+        // DATA ARRAY - Add your new designs here
+        const designSamples = [
+            { id: 1, title: "GRAPHIC_DESIGN", type: "large", img: "assets/1.png" },
+            { id: 2, title: "ADS", type: "standard", img: "assets/2.png" },
+            { id: 3, title: "ELECTRONICS", type: "large", img: "assets/3.png" },
+            { id: 4, title: "FOOD_ADS", type: "standard", img: "assets/4.png" },
+            { id: 5, title: "GLYPH_X", type: "standard", img: "assets/5.png" },
+            { id: 6, title: "INTERFACE_V1", type: "large", img: "assets/6.png" },
+            { id: 7, title: "POST_MODERN", type: "standard", img: "assets/7.png" },
+            { id: 8, title: "VOID_RUNNER", type: "wide", img: "assets/8.png" },
+            { id: 9, title: "CHROME_LENS", type: "standard", img: "assets/9.png" },
+            { id: 10, title: "NEURAL_LINK", type: "standard", img: "assets/10.png" },
+            { id: 11, title: "ORBIT_DESIGN", type: "standard", img: "assets/11.png" },
+            { id: 12, title: "TECH_STAMP", type: "standard", img: "assets/12.png" },
+            { id: 13, title: "TECH_STAMP", type: "large", img: "assets/13.png" },
+            { id: 14, title: "COVER PAGES", type: "wide", img: "assets/14.png" }
+        ];
+
+        const grid = document.getElementById('portfolio-grid');
+        const modal = document.getElementById('design-modal');
+        const modalImg = document.getElementById('modal-img');
+
+        // INJECT CARDS
+        designSamples.forEach(sample => {
+            const card = document.createElement('div');
+            card.className = `card ${sample.type}`;
+            card.innerHTML = `
+                <img src="${sample.img}" alt="${sample.title}" onerror="this.src='https://via.placeholder.com/400x400/111/00f3ff?text=Design+Not+Found'">
+                <h4>${sample.title}</h4>
+            `;
+            card.onclick = () => openPopup(sample.img);
+            grid.appendChild(card);
+        });
+
+        function openPopup(imgSrc) {
+            modal.style.display = 'flex';
+            modalImg.src = imgSrc;
+            document.body.style.overflow = 'hidden'; // Stop scrolling when open
+        }
+
+        function closePopup() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Resume scrolling
+        }
+
+        // Close on background click
+        window.onclick = (e) => { if(e.target == modal) closePopup(); }
+    </script>
+</body>
+</html>
