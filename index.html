@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hasith Dilsara | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-crossorigin="anonymous"
-referrerpolicy="no-referrer" />
-<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
 
     <canvas id="particleCanvas"></canvas>
-    
+
     <main class="content">
         <header>
             <div class="logo">
@@ -29,15 +29,20 @@ referrerpolicy="no-referrer" />
         </header>
 
         <section class="hero" id="hero">
-        <a href="#projects" class="scroll-down">
-        <i class="fas fa-angle-double-down"></i>
-        </a>
+            <a href="#projects" class="scroll-down">
+                <i class="fas fa-angle-double-down"></i>
+            </a>
             <h1 class="highlight"><span id="name-typewriter"></span></h1>
             <h2><span id="title-typewriter"></span></h2>
             <div class="cta-group">
-                <a href="#projects" class="btn-primary">Explore Work</a>
-                <a href="#contact" class="btn-primary">Contact</a>
-                 
+                <a href="#projects" class="btn-primary animated-glow-btn">
+                    <div class="inner"></div>
+                    <span>Explore Work</span>
+                </a>
+                <a href="#contact" class="btn-primary animated-glow-btn">
+                    <div class="inner"></div>
+                    <span>Contact</span>
+                </a>
             </div>
             <!-- Right-side large photo (covers ~1/3 of viewport width on desktop) -->
             <div class="hero-photo-right" aria-hidden="true">
@@ -46,88 +51,95 @@ referrerpolicy="no-referrer" />
         </section>
 
         <section id="projects">
-    <canvas id="projectsCanvas"></canvas>   <!-- ADD THIS -->
-    <div class="projects-content">
-         <h2 class="highlight">Into the graphic Design Industry</h2>
-         <h5>click below for more info!</h5>
-        <a href="dx.html" class="btn-primaryy">DesignX Creations</a>
+            <canvas id="projectsCanvas"></canvas> <!-- ADD THIS -->
+            <div class="projects-content">
+                <div class="dxbtn">
+                    <h2 class="highlight">Into the graphic <br class="mobile-break"> Design Industry</h2>
+                    <h5>click below for more info!</h5>
+                    <a href="dx.html" class="btn-primary animated-glow-btn">
+                        <div class="inner"></div>
+                        <span>DesignX creations</span>
+                    </a>
+                </div>
+                <h2 class="highlight">Projects</h2> <!--carousel-->
 
-    <h2 class="highlight">Projects</h2>  <!--carousel-->
+                <div class="carousel-wrapper">
+                    <button class="arrow left">&#10094;</button>
 
-    <div class="carousel-wrapper">
-        <button class="arrow left">&#10094;</button>
+                    <div class="carousel">
+                        <div class="project-card">
+                            <h3>Image Renamer with AI</h3>
+                            <p>Short description</p>
+                            <button class="info-btn" data-project="1">Info</button>
+                        </div>
 
-        <div class="carousel">
-            <div class="project-card">
-                <h3>Project 1</h3>
-                <p>Short description</p>
-                <button class="info-btn" data-project="1">Info</button>
+                        <div class="project-card">
+                            <h3>Project 2</h3>
+                            <p>Short description</p>
+                            <button class="info-btn" data-project="2">Info</button>
+                        </div>
+
+                        <div class="project-card">
+                            <h3>Project 3</h3>
+                            <p>Short description</p>
+                            <button class="info-btn" data-project="3">Info</button>
+                        </div>
+                    </div>
+
+                    <button class="arrow right">&#10095;</button>
+                </div>
+
             </div>
 
-            <div class="project-card">
-                <h3>Project 2</h3>
-                <p>Short description</p>
-                <button class="info-btn" data-project="2">Info</button>
+
+            <!-- Popup Modal -->
+            <div class="modal" id="projectModal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div id="modalBody"></div>
+                </div>
+            </div>
+            <h2 class="highlight">Right Now</h2>
+            <h3>BET Hon's Mechatronics Technology, University of Sri Jayewardenepura (reading)</h3>
+            <h3>Founder of DesignX Creations</h3>
+        </section>
+
+
+        <section id="contact">
+            <h2 class="highlight">Get in Touch</h2>
+            <p>Interested in collaborating? Drop me a message.</p>
+            <a class="btn-primary animated-glow-btn" id="contactHelloBtn">
+                <div class="inner"></div>
+                <span>Say Hello</span>
+            </a>
+
+
+            <div class="social-menu" id="contactSocialMenu">
+                <a href="https://www.linkedin.com/in/hasith-dilsara/" target="_blank" class="social-item">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <a href="https://github.com/HasithDilsara" target="_blank" class="social-item">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="https://instagram.com" target="_blank" class="social-item">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="https://twitter.com" target="_blank" class="social-item">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+
+                <a href="mailto:hasithd123@gmail.com" class="social-item">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
 
-            <div class="project-card">
-                <h3>Project 3</h3>
-                <p>Short description</p>
-                <button class="info-btn" data-project="3">Info</button>
-            </div>
-        </div>
-
-        <button class="arrow right">&#10095;</button>
-    </div>
-
-</div>
-
-
-<!-- Popup Modal -->
-<div class="modal" id="projectModal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <div id="modalBody"></div>
-    </div>
-</div>
-
-</section>
-
-
-<section id="contact">
-    <h2 class="highlight">Get in Touch</h2>
-    <p>Interested in collaborating? Drop me a message.</p>
-
-    <button type="button" class="btn-primary" id="contactHelloBtn">
-        Say Hello
-        
-    </button>
-
-    <div class="social-menu" id="contactSocialMenu">
-    <a href="https://www.linkedin.com/in/hasith-dilsara/" target="_blank" class="social-item">
-        <i class="fab fa-linkedin-in"></i>
-    </a>
-
-    <a href="https://github.com/HasithDilsara" target="_blank" class="social-item">
-        <i class="fab fa-github"></i>
-    </a>
-
-    <a href="https://instagram.com" target="_blank" class="social-item">
-        <i class="fab fa-instagram"></i>
-    </a>
-
-    <a href="https://twitter.com" target="_blank" class="social-item">
-        <i class="fab fa-x-twitter"></i>
-    </a>
-
-    <a href="mailto:hasithd123@gmail.com" class="social-item">
-        <i class="fas fa-envelope"></i>
-    </a>
-</div>
-
-</section>
+        </section>
 
     </main>
     <script src="script.js"></script>
 </body>
+
 </html>
