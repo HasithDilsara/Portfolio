@@ -33,6 +33,26 @@ html {
     /* Lowest layer */
 }
 
+/* Force left alignment for all text inside the modal */
+#modalBody,
+#modalBody h3,
+#modalBody p,
+#modalBody ul,
+#modalBody li {
+    text-align: left !important;
+}
+
+/* Optional: Add some breathing room so the text is easier to read */
+#modalBody p,
+#modalBody ul {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+#modalBody ul {
+    padding-left: 20px;
+}
+
 /* Content Container */
 .content {
     position: relative;
@@ -372,6 +392,7 @@ button,
     background: rgba(0, 0, 0, 0.5);
 }
 
+/* Update your existing .modal-content */
 .modal-content {
     background: #111;
     margin: 10% auto;
@@ -379,6 +400,45 @@ button,
     width: 50%;
     border-radius: 12px;
     color: white;
+
+    /* ADD THESE TWO LINES: */
+    max-height: 80vh;
+    /* Prevents the modal from being taller than 80% of the screen */
+    overflow-y: auto;
+    /* Adds a vertical scrollbar when content overflows */
+}
+
+/* Add these mobile-specific adjustments inside your existing @media (max-width: 768px) block, or at the bottom of your file */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        /* Uses more screen width on mobile */
+        margin: 15% auto;
+        /* Adjusts top margin */
+        max-height: 75vh;
+        /* Limits height to trigger the scrollbar */
+        padding: 20px;
+        /* Slightly less padding to save space */
+    }
+
+    /* Ensures the image injected into the modal doesn't break the layout */
+    #modalBody img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+}
+
+#modalBody ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+#modalBody p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    /* Makes paragraphs easier to read */
 }
 
 .close {
