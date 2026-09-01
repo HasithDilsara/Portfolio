@@ -1,1 +1,593 @@
-const _0x4f23e9=_0x5128;function _0x20f6(){const _0x181d38=['28032FjhLRO','arc','update','Hasith\x20Dilsara','2118950WVCIqm','174484PilqoD','6820pzBnzW','forEach','127915GaEQIR','log','2481hhBAGX','length','draw','#d3f7f8','.project-card','charAt','getRandomColor','stroke','display','driftRange','10212OHkURB','projects','413GXIuzN','setProperty','.animated-glow-btn','contactHelloBtn','9SvtwXf','none','style','height','fill','clearRect','classList','block','data-project','top','particleCanvas','\x0a\x20\x20\x20\x20<h3>3D\x20CAD\x20engine\x20with\x20python</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20I\x20just\x20built\x20a\x20fully\x20functional\x203D\x20CAD\x20engine\x20from\x20scratch\x20and\x20little\x20bit\x20of\x20vibe\x20coding—controlled\x20entirely\x20by\x20hand\x20gestures🤚🦾\x0a\x0aOver\x20the\x20past\x20few\x20days,\x20I’ve\x20been\x20developing\x20a\x20drafting\x20tool\x20using\x20computer\x20vision.\x20My\x20goal\x20was\x20to\x20create\x20something\x20that\x20has\x20the\x20strict,\x20mathematical\x20precision\x20needed\x20for\x20CAD\x20drawings,\x20but\x20with\x20a\x20smooth,\x20intuitive\x20UI\x20that\x20feels\x20natural\x20to\x20use.\x0a\x0a​Here\x20is\x20a\x20look\x20at\x20the\x20custom\x20gesture\x20engine\x20I\x20built\x20to\x20control\x20the\x20software:\x0a<ul>\x0a<li>👉\x20Aim\x20&\x20Hover:\x20Index\x20finger\x20acts\x20as\x20the\x20cursor.\x20UI\x20buttons\x20activate\x20instantly\x20on\x20touch\x20with\x20built-in\x20debounce\x20to\x20prevent\x20flickering.</li>\x0a<li>🤏\x20Draw\x20&\x20Rotate:\x20Tucking\x20the\x20thumb\x20to\x20the\x20palm\x20acts\x20as\x20a\x20physical\x20\x22mouse\x20click\x22\x20to\x20grab\x20corners,\x20spin\x20the\x203D\x20grid,\x20or\x20pull\x20out\x20new\x20lines.</li>\x0a<li>✊\x20The\x20\x22Length\x20Snap\x22\x20:\x20Curling\x20the\x20ring\x20finger\x20while\x20drawing\x20automatically\x20forces\x20the\x20new\x20line\x20to\x20perfectly\x20match\x20the\x203D\x20length\x20of\x20the\x20previous\x20line.</li>\x0a<li>☝️\x20Erase:\x20Pointing\x20the\x20index\x20finger\x20straight\x20up\x20generates\x20a\x20short\x20\x22laser\x20blade\x22\x20trail\x20to\x20slice\x20through\x20and\x20delete\x20lines.</li>\x0a</ul>\x0aBuilt\x20in\x20Python,\x20utilizing\x20MediaPipe\x20for\x2021-point\x203D\x20hand\x20tracking,\x20OpenCV\x20for\x20rendering\x20the\x20UI\x20and\x20projecting\x20the\x20math\x20to\x20the\x20screen,\x20and\x20NumPy/Math\x20for\x20the\x20heavy\x20linear\x20algebra\x20and\x20rotation\x20matrices.\x0a\x0a​The\x20Biggest\x20Challenges\x20in\x20this:\x0a<ul>\x0a<li>🌀\x20​\x22Ghost\x22\x20Inputs:\x20Cameras\x20pick\x20up\x20micro-jitters.\x20I\x20had\x20to\x20build\x20an\x20\x22Open-Hand\x20Calibration\x22\x20safety\x20lock\x20and\x20strict\x20edge-triggering\x20logic\x20so\x20the\x20software\x20only\x20draws\x20when\x20I\x20intentionally\x20squeeze\x20my\x20hand.</li>\x0a<li>🌀​The\x20Zero-Length\x20Depth\x20Bug:\x20When\x20you\x20extrude\x20a\x20line\x20straight\x20back\x20into\x20the\x20Z-axis,\x20your\x20finger\x20barely\x20moves\x20on\x20the\x20flat\x202D\x20screen.\x20I\x20had\x20to\x20write\x20a\x20custom\x203D\x20Pythagorean\x20calculator\x20so\x20the\x20software\x20measures\x20the\x20true\x203D\x20spatial\x20distance\x20of\x20the\x20line,\x20not\x20just\x20the\x20pixels\x20on\x20the\x20monitor.</li>\x0a<li>🌀​True\x203D\x20Orthogonal\x20Snapping:\x20Upgraded\x20the\x20standard\x202D\x20grid\x20lock\x20into\x20a\x20Ray-Casting\x20algorithm.\x20It\x20dynamically\x20projects\x20the\x20X,\x20Y,\x20and\x20Z\x20axes\x20out\x20from\x20my\x20finger\x20and\x20magnetically\x20snaps\x20the\x20line\x20to\x20perfect\x2090-degree\x20right\x20angles,\x20complete\x20with\x20live\x20centimeter\x20dimensioning.</li>\x0a</ul>\x0aCheck\x20out\x20the\x20video\x20below\x20to\x20see\x20it\x20in\x20action!\x20I’d\x20love\x20to\x20hear\x20your\x20thoughts\x20or\x20connect\x20with\x20anyone\x20else\x20working\x20in\x20Computer\x20Vision,\x20Mechatronics,\x20or\x20Python\x20development.\x20👇\x0a<img\x20src=\x27assets/cad.png\x27\x20alt=\x27Image\x20Renamer\x20AI\x20Interface\x27>\x0a<div\x20class=\x22linkedin-fallback\x22\x20style=\x22text-align:\x20center;\x20margin:\x2020px\x200;\x22>\x0a\x0a\x20\x20\x20\x20<a\x20href=\x22https://www.linkedin.com/posts/hasith-dilsara_computervision-python-opencv-activity-7441490123499880448-Bfr5?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD2I918BgnjillP36tXE0_qEdNfS3iSJCkI\x22\x20target=\x22_blank\x22\x20class=\x22btn-primary\x22\x20style=\x22display:\x20inline-block;\x20margin-top:\x2015px;\x20padding:\x2010px\x2020px;\x20font-size:\x201rem;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20View\x20Post\x20on\x20LinkedIn\x20<i\x20class=\x22fab\x20fa-linkedin\x22></i>\x0a\x20\x20\x20\x20</a>\x0a</div>\x0a\x20\x20\x20\x20','rgba(0,255,255,0.8)','size','5958160dJFBdZ','name-typewriter','color','lineWidth','scrollBy','--mouseY','addEventListener','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h3>Project\x203</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p>Full\x20detailed\x20description\x20of\x20project\x203.</p>\x0a\x20\x20\x20\x20','querySelectorAll','resize','rgba(255,0,255,','--mouseX','projectsCanvas','.arrow.left','6hyWZQG','mousemove','getElementById','#eaeaff','DOMContentLoaded','angle','strokeStyle','velocity','.close','64DFIDKF','Blending\x20Mechatronics\x20technology\x20with\x20creativity','width','.arrow.right','offsetWidth','textContent','moveTo','toggle','.carousel','fillStyle','.info-btn','getBoundingClientRect','beginPath','sqrt','innerWidth','target','clicked','radius','random','querySelector','12nQlvcx','title-typewriter','floor','show','scrollTo','baseY','click','modalBody','smooth','density','push','#8effac','innerHeight','baseX'];_0x20f6=function(){return _0x181d38;};return _0x20f6();}(function(_0x40583e,_0x2d50e8){const _0x4f95b0=_0x5128,_0x4f6202=_0x40583e();while(!![]){try{const _0x48404d=-parseInt(_0x4f95b0(0x101))/0x1*(-parseInt(_0x4f95b0(0xd5))/0x2)+parseInt(_0x4f95b0(0xe9))/0x3*(parseInt(_0x4f95b0(0xfc))/0x4)+parseInt(_0x4f95b0(0xff))/0x5*(parseInt(_0x4f95b0(0xcc))/0x6)+-parseInt(_0x4f95b0(0xac))/0x7*(-parseInt(_0x4f95b0(0xf7))/0x8)+parseInt(_0x4f95b0(0xb0))/0x9*(-parseInt(_0x4f95b0(0xfb))/0xa)+parseInt(_0x4f95b0(0xfd))/0xb*(parseInt(_0x4f95b0(0xaa))/0xc)+-parseInt(_0x4f95b0(0xbe))/0xd;if(_0x48404d===_0x2d50e8)break;else _0x4f6202['push'](_0x4f6202['shift']());}catch(_0x5bcdb3){_0x4f6202['push'](_0x4f6202['shift']());}}}(_0x20f6,0x53e30));const canvas=document['getElementById'](_0x4f23e9(0xba)),ctx=canvas['getContext']('2d');let particles=[];const mouse={'x':null,'y':null,'radius':0xc8};window[_0x4f23e9(0xc4)](_0x4f23e9(0xcd),_0x2b12ee=>{mouse['x']=_0x2b12ee['clientX'],mouse['y']=_0x2b12ee['clientY'];});class Particle{constructor(_0x3c36ce,_0x3db6aa){const _0x17886c=_0x4f23e9;this['x']=_0x3c36ce,this['y']=_0x3db6aa,this[_0x17886c(0xf6)]=_0x3c36ce,this[_0x17886c(0xee)]=_0x3db6aa,this['size']=Math[_0x17886c(0xe7)]()*1.5+0x1,this[_0x17886c(0xf2)]=Math[_0x17886c(0xe7)]()*0x14+0x5,this[_0x17886c(0xc0)]=this[_0x17886c(0x107)](),this[_0x17886c(0xd1)]=Math[_0x17886c(0xe7)]()*Math['PI']*0x2,this[_0x17886c(0xd3)]=Math['random']()*0.02+0.005,this[_0x17886c(0xa9)]=Math[_0x17886c(0xe7)]()*0xf+0x5;}['getRandomColor'](){const _0x76eb22=_0x4f23e9,_0x21acce=[_0x76eb22(0x104),_0x76eb22(0xcf),'#4efafd',_0x76eb22(0xf4)];return _0x21acce[Math[_0x76eb22(0xeb)](Math[_0x76eb22(0xe7)]()*_0x21acce['length'])];}[_0x4f23e9(0x103)](){const _0x5e506b=_0x4f23e9;ctx['fillStyle']=this[_0x5e506b(0xc0)],ctx[_0x5e506b(0xe1)](),ctx[_0x5e506b(0xf8)](this['x'],this['y'],this[_0x5e506b(0xbd)],0x0,Math['PI']*0x2),ctx['closePath'](),ctx[_0x5e506b(0xb4)]();}[_0x4f23e9(0xf9)](){const _0x4d6dfe=_0x4f23e9;this[_0x4d6dfe(0xd1)]+=this[_0x4d6dfe(0xd3)];let _0x3d3329=Math['sin'](this['angle'])*this[_0x4d6dfe(0xa9)],_0x2fa8ee=Math['cos'](this[_0x4d6dfe(0xd1)])*this[_0x4d6dfe(0xa9)],_0x53a053=this[_0x4d6dfe(0xf6)]+_0x3d3329,_0x5c42f1=this[_0x4d6dfe(0xee)]+_0x2fa8ee,_0x455377=mouse['x']-this['x'],_0x479503=mouse['y']-this['y'],_0x4b948d=Math[_0x4d6dfe(0xe2)](_0x455377*_0x455377+_0x479503*_0x479503);if(_0x4b948d<mouse[_0x4d6dfe(0xe6)]){let _0x5396a2=_0x455377/_0x4b948d,_0x1f4659=_0x479503/_0x4b948d,_0x4b7326=mouse[_0x4d6dfe(0xe6)],_0x3ba033=(_0x4b7326-_0x4b948d)/_0x4b7326,_0x1b0615=_0x5396a2*_0x3ba033*this[_0x4d6dfe(0xf2)],_0x328e8c=_0x1f4659*_0x3ba033*this[_0x4d6dfe(0xf2)];this['x']-=_0x1b0615,this['y']-=_0x328e8c;}else{if(this['x']!==_0x53a053){let _0x4d3cca=this['x']-_0x53a053;this['x']-=_0x4d3cca/0x14;}if(this['y']!==_0x5c42f1){let _0x46c2fe=this['y']-_0x5c42f1;this['y']-=_0x46c2fe/0x14;}}}}function init(){const _0x460bcd=_0x4f23e9;canvas[_0x460bcd(0xd7)]=window[_0x460bcd(0xe3)],canvas[_0x460bcd(0xb3)]=window[_0x460bcd(0xf5)],particles=[];const _0x457d53=canvas[_0x460bcd(0xd7)]*canvas[_0x460bcd(0xb3)]/0xfa0;for(let _0x2e8b9f=0x0;_0x2e8b9f<_0x457d53;_0x2e8b9f++){let _0x43264c=Math[_0x460bcd(0xe7)]()*canvas[_0x460bcd(0xd7)],_0x12553c=Math['random']()*canvas[_0x460bcd(0xb3)];particles[_0x460bcd(0xf3)](new Particle(_0x43264c,_0x12553c));}}function animate(){const _0x37fd06=_0x4f23e9;ctx[_0x37fd06(0xb5)](0x0,0x0,canvas[_0x37fd06(0xd7)],canvas[_0x37fd06(0xb3)]);for(let _0x5cba05=0x0;_0x5cba05<particles[_0x37fd06(0x102)];_0x5cba05++){particles[_0x5cba05][_0x37fd06(0x103)](),particles[_0x5cba05][_0x37fd06(0xf9)]();}requestAnimationFrame(animate);}window[_0x4f23e9(0xc4)](_0x4f23e9(0xc7),()=>{init();});const nameText=_0x4f23e9(0xfa),nameElement=document['getElementById'](_0x4f23e9(0xbf));let nameIndex=0x0;function typeName(){const _0x46a04a=_0x4f23e9;nameElement&&nameIndex<nameText[_0x46a04a(0x102)]&&(nameElement[_0x46a04a(0xda)]+=nameText[_0x46a04a(0x106)](nameIndex),nameIndex++,setTimeout(typeName,0x96));}const nameTextt=_0x4f23e9(0xd6),nameElementt=document[_0x4f23e9(0xce)](_0x4f23e9(0xea));let nameIndext=0x0;function typeNames(){const _0x101e89=_0x4f23e9;nameElementt&&nameIndext<nameTextt[_0x101e89(0x102)]&&(nameElementt[_0x101e89(0xda)]+=nameTextt[_0x101e89(0x106)](nameIndext),nameIndext++,setTimeout(typeNames,0x1e));}document[_0x4f23e9(0xc4)](_0x4f23e9(0xd0),()=>{init(),animate(),typeName(),typeNames();});const projectsCanvas=document[_0x4f23e9(0xce)](_0x4f23e9(0xca)),projectsCtx=projectsCanvas['getContext']('2d'),projectsSection=document[_0x4f23e9(0xce)](_0x4f23e9(0xab));let projectPoints=[];const PROJECT_POINT_COUNT=0x64,PROJECT_MAX_DISTANCE=0x78;function resizeProjectsCanvas(){const _0x376b7=_0x4f23e9;projectsCanvas['width']=projectsSection['clientWidth'],projectsCanvas[_0x376b7(0xb3)]=projectsSection['clientHeight'];}class ProjectPoint{constructor(){const _0x334413=_0x4f23e9;this['x']=Math[_0x334413(0xe7)]()*projectsCanvas[_0x334413(0xd7)],this['y']=Math[_0x334413(0xe7)]()*projectsCanvas[_0x334413(0xb3)],this['vx']=(Math[_0x334413(0xe7)]()-0.5)*0x1,this['vy']=(Math['random']()-0.5)*0x1,this[_0x334413(0xbd)]=0x4;}[_0x4f23e9(0xf9)](){const _0x57dae1=_0x4f23e9;this['x']+=this['vx'],this['y']+=this['vy'];if(this['x']<0x0)this['x']=projectsCanvas[_0x57dae1(0xd7)];if(this['x']>projectsCanvas[_0x57dae1(0xd7)])this['x']=0x0;if(this['y']<0x0)this['y']=projectsCanvas['height'];if(this['y']>projectsCanvas['height'])this['y']=0x0;}[_0x4f23e9(0x103)](){const _0x49e814=_0x4f23e9;projectsCtx[_0x49e814(0xe1)](),projectsCtx[_0x49e814(0xf8)](this['x'],this['y'],this['size'],0x0,Math['PI']*0x2),projectsCtx[_0x49e814(0xde)]=_0x49e814(0xbc),projectsCtx[_0x49e814(0xb4)]();}}function connectProjectPoints(){const _0x2a093d=_0x4f23e9;for(let _0x5669cc=0x0;_0x5669cc<projectPoints['length'];_0x5669cc++){for(let _0x4126e6=_0x5669cc+0x1;_0x4126e6<projectPoints['length'];_0x4126e6++){let _0x59f1e3=projectPoints[_0x5669cc]['x']-projectPoints[_0x4126e6]['x'],_0x5afed8=projectPoints[_0x5669cc]['y']-projectPoints[_0x4126e6]['y'],_0x4901b2=Math[_0x2a093d(0xe2)](_0x59f1e3*_0x59f1e3+_0x5afed8*_0x5afed8);if(_0x4901b2<PROJECT_MAX_DISTANCE){let _0x59436f=0x1-_0x4901b2/PROJECT_MAX_DISTANCE;projectsCtx[_0x2a093d(0xd2)]=_0x2a093d(0xc8)+_0x59436f*0.8+')',projectsCtx[_0x2a093d(0xc1)]=0x3,projectsCtx[_0x2a093d(0xe1)](),projectsCtx[_0x2a093d(0xdb)](projectPoints[_0x5669cc]['x'],projectPoints[_0x5669cc]['y']),projectsCtx['lineTo'](projectPoints[_0x4126e6]['x'],projectPoints[_0x4126e6]['y']),projectsCtx[_0x2a093d(0xa7)]();}}}}function _0x5128(_0x5a53f1,_0x574c2d){_0x5a53f1=_0x5a53f1-0xa7;const _0x20f68f=_0x20f6();let _0x512859=_0x20f68f[_0x5a53f1];return _0x512859;}function initProjectsAnimation(){const _0x5d12fa=_0x4f23e9;resizeProjectsCanvas(),projectPoints=[];for(let _0x4d3d2a=0x0;_0x4d3d2a<PROJECT_POINT_COUNT;_0x4d3d2a++){projectPoints[_0x5d12fa(0xf3)](new ProjectPoint());}}function animateProjects(){const _0x52bbe4=_0x4f23e9;projectsCtx[_0x52bbe4(0xb5)](0x0,0x0,projectsCanvas[_0x52bbe4(0xd7)],projectsCanvas[_0x52bbe4(0xb3)]),projectPoints[_0x52bbe4(0xfe)](_0x44986b=>{const _0x599adc=_0x52bbe4;_0x44986b[_0x599adc(0xf9)](),_0x44986b['draw']();}),connectProjectPoints(),requestAnimationFrame(animateProjects);}window['addEventListener']('resize',()=>{resizeProjectsCanvas(),initProjectsAnimation();}),initProjectsAnimation(),animateProjects();const carousel=document[_0x4f23e9(0xe8)](_0x4f23e9(0xdd)),leftBtn=document[_0x4f23e9(0xe8)](_0x4f23e9(0xcb)),rightBtn=document['querySelector'](_0x4f23e9(0xd8));rightBtn['addEventListener']('click',()=>{const _0x57738e=_0x4f23e9,_0x5a856b=document[_0x57738e(0xe8)](_0x57738e(0x105))[_0x57738e(0xd9)]+0x19;carousel['scrollBy']({'left':_0x5a856b,'behavior':'smooth'});}),leftBtn[_0x4f23e9(0xc4)](_0x4f23e9(0xef),()=>{const _0x4e5288=_0x4f23e9,_0x1cab82=document[_0x4e5288(0xe8)](_0x4e5288(0x105))['offsetWidth']+0x19;carousel['scrollBy']({'left':-_0x1cab82,'behavior':'smooth'});});const modal=document[_0x4f23e9(0xce)]('projectModal'),modalBody=document[_0x4f23e9(0xce)](_0x4f23e9(0xf0)),closeBtn=document[_0x4f23e9(0xe8)](_0x4f23e9(0xd4)),projectDetails={0x1:'\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h3>Image\x20Renamer\x20local\x20AI</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p>Automating\x20Image\x20organization\x20with\x20Local\x20AI\x20and\x20Computer\x20Vision.\x20I\x20recently\x20built\x20a\x20Python-based\x20automation\x20tool\x20to\x20solve\x20a\x20common\x20problem:\x20messy\x20image\x20datasets\x20with\x20useless\x20filenames\x20like\x20IMG_0054.jpg.\x20🛠️</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p>Using\x20Microsoft\x27s\x20Florence-2\x20vision\x20model\x20locally\x20(no\x20cloud\x20APIs,\x20so\x20no\x20payments\x20and\x20limitations),\x20I\x20created\x20a\x20script\x20that:</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Analyzes\x20the\x20image\x20content\x20using\x20computer\x20vision\x20and\x20generates\x20a\x20professional,\x20descriptive\x20filename.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Extracts\x20relevant\x20hashtags\x20automatically\x20for\x20better\x20searchability.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<li>Cleans\x20the\x20metadata\x20using\x20custom\x20NLP\x20logic\x20to\x20remove\x20filler\x20words.</li>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</ul>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p>Built\x20using\x20Python\x203.12,\x20PyTorch\x20for\x20inference,\x20Hugging\x20Face\x20Transformers,\x20and\x20Microsoft\x20Florence-2.\x20Currently\x20tuning\x20for\x20best\x20results.\x20🚀</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p>The\x20best\x20part?\x20It\x20runs\x20entirely\x20offline\x20on\x20my\x20own\x20hardware,\x20preserving\x20privacy\x20and\x20eliminating\x20API\x20costs.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x27assets/p1.png\x27\x20alt=\x27Image\x20Renamer\x20AI\x20Interface\x27>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22linkedin-fallback\x22\x20style=\x22text-align:\x20center;\x20margin:\x2020px\x200;\x22>\x0a\x0a\x20\x20\x20\x20<a\x20href=\x22https://www.linkedin.com/posts/hasith-dilsara_computervision-python-opencv-activity-7441490123499880448-Bfr5?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD2I918BgnjillP36tXE0_qEdNfS3iSJCkI\x22\x20target=\x22_blank\x22\x20class=\x22btn-primary\x22\x20style=\x22display:\x20inline-block;\x20margin-top:\x2015px;\x20padding:\x2010px\x2020px;\x20font-size:\x201rem;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20View\x20Post\x20on\x20LinkedIn\x20<i\x20class=\x22fab\x20fa-linkedin\x22></i>\x0a\x20\x20\x20\x20</a>\x0a</div>\x0a\x20\x20\x20\x20',0x2:_0x4f23e9(0xbb),0x3:_0x4f23e9(0xc5)};document[_0x4f23e9(0xc6)](_0x4f23e9(0xdf))['forEach'](_0x11adfc=>{const _0x44ecdb=_0x4f23e9;_0x11adfc[_0x44ecdb(0xc4)](_0x44ecdb(0xef),()=>{const _0x310b50=_0x44ecdb,_0x3509e0=_0x11adfc['getAttribute'](_0x310b50(0xb8));modalBody['innerHTML']=projectDetails[_0x3509e0],modal[_0x310b50(0xb2)][_0x310b50(0xa8)]=_0x310b50(0xb7);});}),closeBtn['addEventListener'](_0x4f23e9(0xef),()=>{const _0xbb4dc8=_0x4f23e9;modal[_0xbb4dc8(0xb2)][_0xbb4dc8(0xa8)]=_0xbb4dc8(0xb1);}),window[_0x4f23e9(0xc4)]('click',_0x475dde=>{const _0x29eba0=_0x4f23e9;_0x475dde[_0x29eba0(0xe4)]===modal&&(modal['style'][_0x29eba0(0xa8)]=_0x29eba0(0xb1));}),carousel[_0x4f23e9(0xc2)]({'left':0x12c,'behavior':'smooth'}),rightBtn[_0x4f23e9(0xc4)](_0x4f23e9(0xef),()=>{const _0x1377f0=_0x4f23e9,_0x22490e=document[_0x1377f0(0xe8)](_0x1377f0(0x105))[_0x1377f0(0xd9)]+0x14;carousel[_0x1377f0(0xc2)]({'left':_0x22490e,'behavior':_0x1377f0(0xf1)});}),leftBtn[_0x4f23e9(0xc4)](_0x4f23e9(0xef),()=>{const _0x4c453c=_0x4f23e9,_0x501ab1=document[_0x4c453c(0xe8)](_0x4c453c(0x105))['offsetWidth']+0x14;carousel['scrollBy']({'left':-_0x501ab1,'behavior':_0x4c453c(0xf1)});}),document['addEventListener'](_0x4f23e9(0xd0),function(){const _0x27ef05=_0x4f23e9,_0x1aa7e3=document['getElementById'](_0x27ef05(0xaf)),_0x5b8a88=document[_0x27ef05(0xce)]('contactSocialMenu');_0x1aa7e3[_0x27ef05(0xc4)]('click',function(){const _0x414a23=_0x27ef05;_0x5b8a88[_0x414a23(0xb6)][_0x414a23(0xdc)](_0x414a23(0xec)),console[_0x414a23(0x100)](_0x414a23(0xe5));});}),document[_0x4f23e9(0xc4)]('DOMContentLoaded',function(){const _0x25093c=_0x4f23e9,_0x229d38=document['querySelectorAll'](_0x25093c(0xae));_0x229d38['forEach'](_0x304fb2=>{const _0x58b3bd=_0x25093c;_0x304fb2['addEventListener'](_0x58b3bd(0xcd),_0x29fd85=>{const _0x35e0f2=_0x58b3bd,_0x159d09=_0x304fb2[_0x35e0f2(0xe0)](),_0x425128=_0x29fd85['clientX']-_0x159d09['left'],_0x34c13b=_0x29fd85['clientY']-_0x159d09[_0x35e0f2(0xb9)];_0x304fb2[_0x35e0f2(0xb2)][_0x35e0f2(0xad)](_0x35e0f2(0xc9),_0x425128+'px'),_0x304fb2[_0x35e0f2(0xb2)][_0x35e0f2(0xad)](_0x35e0f2(0xc3),_0x34c13b+'px');});});}),window[_0x4f23e9(0xc4)]('load',()=>{const _0x199938=_0x4f23e9,_0x575c93=document[_0x199938(0xe8)](_0x199938(0xdd));_0x575c93&&_0x575c93[_0x199938(0xed)]({'left':0x0,'behavior':'instant'});});
+const CONFIG = {
+  email: 'hasithd123@gmail.com',
+  whatsapp: '+94757234461'
+};
+
+const icon = (name) => `<svg aria-hidden="true"><use href="#icon-${name}"></use></svg>`;
+
+const experiences = [
+  {
+    company: 'Designx',
+    role: 'Founder / Principal Designer',
+    period: 'Dec 2024 – Present',
+    location: 'Sri Lanka',
+    summary: 'Designx is a creative design and visual storytelling studio that specializes in delivering high-quality content and visual solutions for clients across various industries.',
+    bullets: ['Founded and manage a creative design studio, providing services in graphic design, branding, and visual content creation.'],
+    socialLinks: [
+      { icon: 'facebook', label: 'Designx Facebook', href: 'https://web.facebook.com/designXsl' },
+      { icon: 'instagram', label: 'Designx Instagram', href: 'https://www.instagram.com/designx_creations' },
+      { icon: 'behance', label: 'Designx Behance', href: 'https://www.behance.net/DesignX_sl' }
+    ]
+  },
+  {
+    company: 'Latest Advertising',
+    role: 'Graphic Designer',
+    period: 'Jul 2024 – Mar 2025',
+    location: 'Mawanella, Sri Lanka',
+    summary: 'Latest Advertising is a dynamic advertising agency that focuses on creating impactful visual solutions and print media for clients across various sectors.',
+    bullets: ['Designed and executed creative advertising campaigns, including print, digital, and social media assets.'],
+  },
+  {
+    company: 'Fiverr Freelance',
+    role: 'Freelance Designer',
+    period: '2021 – 2023',
+    location: 'Sri Lanka',
+    summary: 'Provided freelance design services on Fiverr, specializing in graphic design, branding, and visual content creation for clients worldwide.',
+    bullets: ['Delivered high-quality design projects for clients, including logos, social media graphics, and marketing materials.']
+  }
+];
+
+const projects = [
+  
+  {
+    title: 'Personal Portfolio Website',
+    category: 'Web Portfolio',
+    icon: 'code',
+    description: 'A personal portfolio website showcasing my skills, projects, and experiences. The website is designed to be responsive and visually appealing, providing an overview of my professional background and work.',
+    tools: ['HTML', 'CSS', 'JavaScript', 'Responsive UI', 'GitHub Pages'],
+    github: 'https://github.com/HasithDilsara/Portfolio'
+  },
+  {
+    title: '3D CAD Engine With camera',
+    category: 'CAD',
+    icon: 'cpu',
+    description: 'A 3D CAD engine with camera controls, allowing users to view and manipulate 3D models in a virtual environment. The engine supports basic rendering, transformations, and user interactions.',
+    tools: ['Python', 'mediapipe', '3D', 'CAD'],
+    github: 'https://github.com/HasithDilsara/3D-CAD-Engine'
+  },
+  {
+    title: 'AI File Renamer',
+    category: 'AI & Automation',
+    icon: 'cpu',
+    description: 'An AI-powered file renaming tool that uses machine learning algorithms to automatically rename files based on their content, metadata, or user-defined rules. It simplifies file organization and management.',
+    tools: ['Python', 'Florance ai', 'Microsoft florence', 'image recognition', 'File management'],
+    github: 'https://github.com/HasithDilsara/File-renamer'
+  }
+];
+
+const skills = [
+  {
+    title: 'CAD & Mechanical Design',
+    icon: 'tools',
+    items: ['SolidWorks', 'AutoCAD', 'AutoCAD Plant 3D', 'Fusion 360', '3D Modelling', 'P&ID', 'Plant Layout', 'Technical Drawings']
+  },
+  {
+    title: 'PLC, HMI & Automation',
+    icon: 'factory',
+    items: ['TIA Portal', 'GX Works', 'Codesys', 'CCW', 'SoftMaster', 'PLstudio', 'Kinco HMIware', 'PLC Programming', 'HMI Design', 'VFD']
+  },
+  {
+    title: 'Embedded & Robotics',
+    icon: 'cpu',
+    items: ['Arduino', 'C Programming', 'Microcontrollers', 'Motor Control', 'Sensors', 'Servo Control', 'Stepper Control', 'Robotics']
+  },
+  {
+    title: 'Software & Machine Vision',
+    icon: 'code',
+    items: ['Python', 'Java', 'Flutter', 'Dart', 'SQLite', 'OpenCV', 'NumPy', 'Git', 'GitHub']
+  },
+  {
+    title: 'Simulation & Project Tools',
+    icon: 'spark',
+    items: ['MATLAB', 'LabVIEW', 'Festo FluidSIM', 'EPLAN', 'Microsoft Visio', 'Microsoft 365', 'Primavera P6', 'ROBODK']
+  }
+];
+
+const education = [
+  {
+    title: 'Bachelor of Engineering Technology (Honours) - Mechatronic Technology',
+    institute: 'University of Sri Jayewardenepura',
+    period: '2025 – 2029',
+    description: 'Focused on mechatronics, automation, mechanical systems, embedded systems and engineering technology.',
+    url: 'https://www.sjp.ac.lk/'
+  },
+  {
+    title: 'G.C.E. Advanced Level - Engineering Technology Stream',
+    institute: 'Sri Lanka',
+    period: '2023',
+    description: 'Engineering Technology: A, Science for Technology: A, ICT: A, Z-Score: 2.7726.',
+    url: '#'
+  },
+  {
+    title: 'G.C.E. Ordinary Level',
+    institute: 'Sri Lanka',
+    period: '2020',
+    description: '5 A Passes | 4 B Pass.',
+    url: '#'
+  }
+];
+
+const certificates = [
+  {
+    title: 'Latest Resume / CV',
+    issuer: 'Heshala Maduwantha',
+    detail: 'Updated resume used as the main downloadable CV on this portfolio.',
+    file: 'assets/documents/Hasith Dilsara_CV.pdf'
+  },
+  {
+    title: 'Programmable Logic Controllers(PLC) Course',
+    issuer: 'Sri lanka Institute of Robotics',
+    detail: '150-hour training course. Classification: Very Good Pass.',
+    file: 'assets/certificates/plc.pdf'
+  },
+  {
+    title: 'Python Programming_E-Certificate',
+    issuer: 'Centre for Open & Distance Learning - University of Moratuwa',
+    detail: 'Online learning programme in Python programming. Issued on jul 17, 2024.',
+    file: 'assets/certificates/Python_Programming_E-Certificate.pdf'
+  },
+  {
+    title: 'Server side Web Programming E-Certificate',
+    issuer: 'Centre for Open & Distance Learning - University of Moratuwa',
+    detail: 'Online learning programme in server side web programming. Issued on May 20, 2024.',
+    file: 'assets/certificates/Server-side_Web_Programming_E-Certificate.pdf'
+  },
+  {
+    title: 'Front-End Web Development E-Certificate',
+    issuer: 'Centre for Open & Distance Learning - University of Moratuwa',
+    detail: 'Online learning programme in Front-End_Web_Development. Issued on May 20, 2024.',
+    file: 'assets/certificates/Front-End_Web_Development_E-Certificate.pdf'
+  },
+  {
+    title: 'G.C.E. Advanced Level Results',
+    issuer: 'Department of Examinations - Sri Lanka',
+    detail: 'Engineering Technology stream: ICT A, Engineering Technology B, Science for Technology A, Z-score 2.7155.',
+    file: 'assets/certificates/AL_Results.pdf'
+  },
+  {
+    title: 'G.C.E. Ordinary Level Results',
+    issuer: 'Department of Examinations - Sri Lanka',
+    detail: '2017 Ordinary Level result sheet: 8 A passes and 1 C pass.',
+    file: 'assets/certificates/OL_Results.pdf'
+  }
+];
+
+function setupParticles() {
+  const canvas = document.querySelector('#particle-canvas');
+  if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const context = canvas.getContext('2d');
+  const particles = [];
+  const mouse = { x: -1000, y: -1000, vx: 0, vy: 0, active: false };
+  const settings = {
+    density: 0.00012,
+    minSize: 0.5,
+    maxSize: 1.45,
+    driftSpeed: 0.22,
+    mouseRadius: 145,
+    returnStrength: 0.014,
+    friction: 0.94,
+    palettes: {
+      dark: [[34, 238, 156], [34, 211, 238], [168, 85, 247], [245, 158, 11]],
+      light: [[14, 116, 144], [8, 145, 178], [126, 34, 206], [180, 83, 9]]
+    }
+  };
+  let width = 0;
+  let height = 0;
+  let animationFrame;
+
+  function activePalette() {
+    return settings.palettes[document.documentElement.dataset.theme] || settings.palettes.dark;
+  }
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    context.setTransform(dpr, 0, 0, dpr, 0, 0);
+    particles.length = 0;
+    const count = Math.min(180, Math.floor(width * height * settings.density));
+    for (let index = 0; index < count; index += 1) particles.push(new Particle());
+  }
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.baseX = this.x;
+      this.baseY = this.y;
+      this.depth = Math.random();
+      this.size = settings.minSize + Math.random() * (settings.maxSize - settings.minSize);
+      this.speed = settings.driftSpeed * (0.3 + this.depth * 1.2);
+      this.phase = Math.random() * Math.PI * 2;
+      this.vx = 0;
+      this.vy = 0;
+      this.alpha = 0.3 + Math.random() * 0.56;
+      this.colorIndex = Math.floor(Math.random() * 4);
+    }
+
+    update() {
+      this.phase += 0.01;
+      this.vx += Math.sin(this.phase * 0.7 + this.y * 0.002) * 0.1;
+      this.vy -= this.speed;
+
+      if (mouse.active) {
+        const dx = this.x - mouse.x;
+        const dy = this.y - mouse.y;
+        const distance = Math.hypot(dx, dy);
+        if (distance < settings.mouseRadius) {
+          const force = 1 - distance / settings.mouseRadius;
+          const angle = Math.atan2(dy, dx);
+          this.vx += Math.cos(angle) * force * 0.22 + mouse.vx * force * 0.02;
+          this.vy += Math.sin(angle) * force * 0.22 + mouse.vy * force * 0.02;
+        }
+      }
+
+      this.vx += (this.baseX - this.x) * settings.returnStrength;
+      this.vy += (this.baseY - this.y) * settings.returnStrength;
+      this.vx *= settings.friction;
+      this.vy *= settings.friction;
+      this.x += this.vx;
+      this.y += this.vy;
+      this.baseY -= this.speed;
+
+      if (this.baseY < -30) {
+        this.baseY = height + 30;
+        this.y = this.baseY;
+      }
+      if (this.x < -30) this.x = this.baseX = width + 30;
+      if (this.x > width + 30) this.x = this.baseX = -30;
+      if (this.y < -50) this.y = this.baseY = height + 50;
+    }
+
+    draw() {
+      const depth = 0.45 + this.depth * 0.9;
+      const [red, green, blue] = activePalette()[this.colorIndex];
+      context.beginPath();
+      context.arc(this.x, this.y, this.size * depth, 0, Math.PI * 2);
+      context.fillStyle = `rgba(${red}, ${green}, ${blue}, ${this.alpha * (0.4 + this.depth * 0.7)})`;
+      context.fill();
+    }
+  }
+
+  function animate() {
+    context.clearRect(0, 0, width, height);
+    particles.forEach((particle) => {
+      particle.update();
+      particle.draw();
+    });
+    mouse.vx *= 0.9;
+    mouse.vy *= 0.9;
+    animationFrame = requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('resize', resize, { passive: true });
+  window.addEventListener('pointermove', (event) => {
+    mouse.vx = event.clientX - mouse.x;
+    mouse.vy = event.clientY - mouse.y;
+    mouse.x = event.clientX;
+    mouse.y = event.clientY;
+    mouse.active = true;
+  }, { passive: true });
+  window.addEventListener('pointerleave', () => { mouse.active = false; }, { passive: true });
+  window.addEventListener('beforeunload', () => cancelAnimationFrame(animationFrame), { once: true });
+  resize();
+  animate();
+}
+
+function renderExperiences() {
+  const list = document.querySelector('#experience-list');
+  list.innerHTML = experiences.map((item, index) => `
+    <article class="timeline-item reveal ${index ? 'delay-1' : ''}">
+      <span class="timeline-dot"></span>
+      <div class="timeline-card">
+        <header>
+          <div>
+            <h3>${item.company}</h3>
+            <span class="role">${item.role}</span>
+          </div>
+          <span class="period">${item.period}</span>
+        </header>
+        <p><strong>${item.location}</strong></p>
+        <p>${item.summary}</p>
+        <ul>${item.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+        ${item.socialLinks ? `
+          <div class="experience-social social-block" aria-label="${item.company} social links">
+            <span class="social-label">${item.company}</span>
+            <div class="social-row">
+              ${item.socialLinks.map(link => `<a href="${link.href}" target="_blank" rel="noreferrer" aria-label="${link.label}">${icon(link.icon)}</a>`).join('')}
+            </div>
+          </div>
+        ` : ''}
+        ${item.cblProjects ? `
+          <div class="experience-projects">
+            <h4>CBL Internship Projects</h4>
+            <div class="experience-project-grid">
+              ${item.cblProjects.map(project => `
+                <article class="experience-project-card">
+                  <span>${icon(project.icon)}</span>
+                  <div>
+                    <strong>${project.title}</strong>
+                    <p>${project.detail}</p>
+                  </div>
+                </article>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
+      </div>
+    </article>
+  `).join('');
+}
+
+function renderFilters() {
+  const filters = ['All', ...new Set(projects.map(project => project.category))];
+  const filterRow = document.querySelector('#project-filters');
+  filterRow.innerHTML = filters.map((filter, index) => `
+    <button type="button" class="${index === 0 ? 'active' : ''}" data-filter="${filter}">${filter}</button>
+  `).join('');
+}
+
+function projectCard(project) {
+  const hasRepo = project.github && project.github !== '#';
+  return `
+    <article class="project-card reveal" data-category="${project.category}">
+      <div class="project-card-shine" aria-hidden="true"></div>
+      <div class="project-icon">${icon(project.icon)}</div>
+      <h3>${project.title}</h3>
+      <p>${project.description}</p>
+      <div class="tag-list">${project.tools.map(tool => `<span>${tool}</span>`).join('')}</div>
+      <div class="project-actions">
+        <a class="${hasRepo ? '' : 'disabled'}" href="${hasRepo ? project.github : '#'}" target="_blank" rel="noreferrer">${icon('github')} ${hasRepo ? 'GitHub Repo' : 'Add repo link'}</a>
+      </div>
+    </article>
+  `;
+}
+
+function renderProjects(filter = 'All') {
+  const grid = document.querySelector('#projects-grid');
+  const filtered = filter === 'All' ? projects : projects.filter(project => project.category === filter);
+  grid.innerHTML = filtered.map(projectCard).join('');
+  observeReveal();
+  addCardGlow();
+}
+
+function renderSkills() {
+  const grid = document.querySelector('#skills-grid');
+  grid.innerHTML = skills.map((group, index) => `
+    <article class="skill-card reveal ${index % 3 === 1 ? 'delay-1' : ''} ${index % 3 === 2 ? 'delay-2' : ''}">
+      <header>
+        <span class="skill-icon">${icon(group.icon)}</span>
+        <h3>${group.title}</h3>
+      </header>
+      <ul>${group.items.map(item => `<li>${item}</li>`).join('')}</ul>
+    </article>
+  `).join('');
+}
+
+function renderEducation() {
+  const grid = document.querySelector('#education-grid');
+  grid.innerHTML = education.map((item, index) => {
+    const hasUrl = item.url && item.url !== '#';
+    return `
+      <article class="edu-card reveal ${index % 2 ? 'delay-1' : ''}">
+        <span class="year">${item.period}</span>
+        <h3>${item.title}</h3>
+        <p><strong>${item.institute}</strong></p>
+        <p>${item.description}</p>
+        ${hasUrl ? `<a href="${item.url}" target="_blank" rel="noreferrer">Visit official website ${icon('external')}</a>` : ''}
+      </article>
+    `;
+  }).join('');
+}
+
+function renderCertificates() {
+  const grid = document.querySelector('#cert-grid');
+  grid.innerHTML = certificates.map((item, index) => `
+    <article class="cert-card reveal ${index % 3 === 1 ? 'delay-1' : ''} ${index % 3 === 2 ? 'delay-2' : ''}">
+      <div class="cert-top">
+        <span class="cert-badge">${icon('award')}</span>
+        <small>${item.issuer}</small>
+      </div>
+      <h3>${item.title}</h3>
+      <p>${item.detail}</p>
+      <div class="cert-actions">
+        <button type="button" data-open-pdf="${item.file}" data-title="${item.title}">${icon('eye')} View</button>
+        <a href="${item.file}" download>${icon('download')} Download</a>
+      </div>
+    </article>
+  `).join('');
+}
+
+function observeReveal() {
+  const elements = document.querySelectorAll('.reveal:not(.visible)');
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.14 });
+  elements.forEach(element => observer.observe(element));
+}
+
+function addCardGlow() {
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('pointermove', (event) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+      card.style.setProperty('--my', `${event.clientY - rect.top}px`);
+    });
+  });
+}
+
+function setupTheme() {
+  const savedTheme = localStorage.getItem('portfolio-theme');
+  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  const initialTheme = savedTheme || (prefersLight ? 'light' : 'dark');
+  document.documentElement.dataset.theme = initialTheme;
+  document.querySelector('.theme-toggle').addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('portfolio-theme', next);
+  });
+}
+
+function setupNavigation() {
+  const toggle = document.querySelector('.nav-toggle');
+  const panel = document.querySelector('[data-nav-panel]');
+  toggle.addEventListener('click', () => {
+    const open = panel.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.innerHTML = open ? '<svg><use href="#icon-close"></use></svg>' : '<svg><use href="#icon-menu"></use></svg>';
+  });
+  panel.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    panel.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.innerHTML = '<svg><use href="#icon-menu"></use></svg>';
+  }));
+
+  const sections = [...document.querySelectorAll('main section[id]')];
+  const navLinks = [...document.querySelectorAll('.nav-panel a')];
+  window.addEventListener('scroll', () => {
+    const fromTop = window.scrollY + 130;
+    let active = sections[0]?.id;
+    sections.forEach(section => {
+      if (section.offsetTop <= fromTop) active = section.id;
+    });
+    navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${active}`));
+  }, { passive: true });
+}
+
+function setupProjectFilters() {
+  document.querySelector('#project-filters').addEventListener('click', event => {
+    const button = event.target.closest('button');
+    if (!button) return;
+    document.querySelectorAll('#project-filters button').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    renderProjects(button.dataset.filter);
+  });
+}
+
+function setupBackToTop() {
+  const button = document.querySelector('.back-top');
+  if (!button) return;
+
+  const updateVisibility = () => {
+    button.classList.toggle('show', window.scrollY > window.innerHeight * 0.7);
+  };
+
+  button.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  window.addEventListener('scroll', updateVisibility, { passive: true });
+  updateVisibility();
+}
+
+function setupModal() {
+  const modal = document.querySelector('#pdf-modal');
+  const frame = document.querySelector('#pdf-frame');
+  const title = document.querySelector('#modal-title');
+  const openNewTab = document.querySelector('#modal-open-new');
+
+  document.body.addEventListener('click', event => {
+    const openButton = event.target.closest('[data-open-pdf]');
+    const closeButton = event.target.closest('[data-close-modal]');
+    if (openButton) {
+      const pdfUrl = openButton.dataset.openPdf;
+      title.textContent = openButton.dataset.title;
+      frame.src = `${pdfUrl}#toolbar=1&navpanes=0&zoom=page-fit`;
+      openNewTab.href = pdfUrl;
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    if (closeButton) closeModal();
+  });
+
+  window.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && modal.classList.contains('show')) closeModal();
+  });
+
+  function closeModal() {
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+    frame.src = '';
+    openNewTab.href = '#';
+    document.body.style.overflow = '';
+  }
+}
+
+function setupContactForm() {
+  const form = document.querySelector('#contact-form');
+  const whatsappButton = document.querySelector('#whatsapp-button');
+
+  const getMessage = () => {
+    const data = new FormData(form);
+    return {
+      name: data.get('name')?.trim() || '',
+      email: data.get('email')?.trim() || '',
+      subject: data.get('subject')?.trim() || 'Portfolio Contact',
+      message: data.get('message')?.trim() || ''
+    };
+  };
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const { name, email, subject, message } = getMessage();
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    window.location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${body}`;
+  });
+
+  whatsappButton.addEventListener('click', () => {
+    const { name, email, subject, message } = getMessage();
+    const text = encodeURIComponent(`Hello Heshala,\n\n${message || 'I contacted you through your portfolio website.'}\n\nName: ${name || '-'}\nEmail: ${email || '-'}\nSubject: ${subject || 'Portfolio Contact'}`);
+    window.open(`https://wa.me/${CONFIG.whatsapp}?text=${text}`, '_blank', 'noreferrer');
+  });
+}
+
+function disableMissingSocials() {
+  document.querySelectorAll('.needs-link').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      alert('This social profile link is not configured yet.');
+    });
+  });
+}
+
+function init() {
+  renderExperiences();
+  renderFilters();
+  renderProjects();
+  renderSkills();
+  renderEducation();
+  renderCertificates();
+  setupTheme();
+  setupParticles();
+  setupNavigation();
+  setupBackToTop();
+  setupProjectFilters();
+  setupModal();
+  setupContactForm();
+  disableMissingSocials();
+  addCardGlow();
+  observeReveal();
+  document.querySelector('#year').textContent = new Date().getFullYear();
+}
+
+document.addEventListener('DOMContentLoaded', init);
